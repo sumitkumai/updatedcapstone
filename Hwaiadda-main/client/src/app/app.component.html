@@ -1,0 +1,47 @@
+<app-loading-spinner></app-loading-spinner>
+
+<nav class="navbar navbar-expand-lg navbar-bharat px-3" *ngIf="showNavbar">
+  <a class="navbar-brand" routerLink="/">
+    <span class="brand-icon">✈</span> Bharat Airlines
+  </a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ms-auto align-items-center">
+
+      <ng-container *ngIf="isLoggedIn && role === 'ADMIN'">
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/admin/analytics">Analytics</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/add_flights">Flights</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/view_all_user">Bookings</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/assign_pilot">Assign Pilot</a></li>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn && role === 'PASSENGER'">
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/search_flight">Search</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/my_booking">My Bookings</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/my_profile">Profile</a></li>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn && role === 'PILOT'">
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/pilot-schedule">My Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/my_profile">Profile</a></li>
+      </ng-container>
+
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link btn-register" routerLink="/register">Register</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button class="btn btn-outline-light btn-sm ms-2" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div [class.app-content]="showNavbar">
+  <router-outlet></router-outlet>
+</div>

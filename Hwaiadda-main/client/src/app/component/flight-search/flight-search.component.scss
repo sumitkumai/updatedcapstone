@@ -1,0 +1,12 @@
+.flight-card {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--bharat-blue);
+}
+
+.price-tag {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bharat-blue);
+}

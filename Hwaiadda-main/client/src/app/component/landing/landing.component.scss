@@ -1,0 +1,143 @@
+.landing {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--bharat-blue) 0%, #0d5a8a 45%, var(--bharat-light) 45%);
+}
+
+.landing-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: var(--bharat-white);
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--bharat-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .brand-icon {
+    font-size: 1.5rem;
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--bharat-white);
+    text-decoration: none;
+  }
+}
+
+.hero {
+  padding: 3rem 2rem 4rem;
+  color: var(--bharat-white);
+
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+  }
+
+  .hero-sub {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+}
+
+.hero-search {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1.5rem;
+  color: #333;
+  max-width: 900px;
+  box-shadow: var(--bharat-shadow);
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--bharat-blue);
+  }
+}
+
+.section-pad {
+  padding: 3rem 2rem;
+  background: var(--bharat-light);
+}
+
+.feature-card {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  h5 {
+    color: var(--bharat-blue);
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--bharat-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+.dest-card {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &:hover {
+    border-color: var(--bharat-saffron);
+  }
+
+  .dest-emoji {
+    font-size: 1.75rem;
+    display: block;
+  }
+
+  strong {
+    display: block;
+    color: var(--bharat-blue);
+  }
+
+  small {
+    color: var(--bharat-muted);
+  }
+}
+
+.landing-footer {
+  background: var(--bharat-blue);
+  color: var(--bharat-white);
+  padding: 2rem;
+  text-align: center;
+
+  .footer-links {
+    margin-top: 0.5rem;
+
+    a {
+      color: var(--bharat-saffron);
+      margin: 0 0.75rem;
+      text-decoration: none;
+    }
+  }
+}

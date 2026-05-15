@@ -1,0 +1,22 @@
+.payment-card {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 2rem;
+  max-width: 480px;
+  box-shadow: var(--bharat-shadow);
+}
+
+.amount-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bharat-light);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+
+  strong {
+    font-size: 1.5rem;
+    color: var(--bharat-blue);
+  }
+}

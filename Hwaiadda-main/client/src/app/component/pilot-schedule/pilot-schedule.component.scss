@@ -1,0 +1,12 @@
+.schedule-card {
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1.25rem;
+  box-shadow: var(--bharat-shadow);
+  border-left: 4px solid var(--bharat-saffron);
+
+  h5 {
+    color: var(--bharat-blue);
+    margin-bottom: 0.5rem;
+  }
+}

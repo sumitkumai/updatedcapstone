@@ -1,0 +1,39 @@
+<div class="auth-page page-enter">
+  <div class="auth-card">
+    <h4 class="section-title text-center">Create Account</h4>
+    <p class="text-center text-muted mb-3">Bharat Airlines</p>
+
+    <div class="alert alert-danger" *ngIf="showError">{{ errorMessage }}</div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Contact Number (optional)</label>
+        <input type="number" class="form-control" formControlName="contactNumber">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Role</label>
+        <select class="form-select" formControlName="role">
+          <option value="PASSENGER">Passenger</option>
+          <option value="PILOT">Pilot</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-bharat-primary w-100" [disabled]="registerForm.invalid">Send OTP</button>
+    </form>
+
+    <p class="text-center mt-3">
+      Already have an account? <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</div>

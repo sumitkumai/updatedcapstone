@@ -1,0 +1,34 @@
+<div class="container mt-4" *ngIf="metrics">
+  <h3>Admin Analytics Dashboard</h3>
+  <div class="row g-3 mb-4">
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>{{ metrics.totalBookings }}</h5>
+        <small class="text-muted">Total Bookings</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>₹{{ metrics.revenue | number:'1.0-0' }}</h5>
+        <small class="text-muted">Revenue</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>{{ metrics.averageOccupancy | number:'1.1-1' }}%</h5>
+        <small class="text-muted">Avg Occupancy</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>{{ metrics.cancellationCount }}</h5>
+        <small class="text-muted">Cancellations</small>
+      </div>
+    </div>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-6"><canvas id="routesChart"></canvas></div>
+    <div class="col-md-6"><canvas id="cancelChart"></canvas></div>
+    <div class="col-md-6"><canvas id="occupancyChart"></canvas></div>
+  </div>
+</div>

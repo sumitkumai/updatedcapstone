@@ -1,0 +1,72 @@
+# =============================================================================
+# API KEYS & SECRETS — BACKEND (Spring Boot)
+# =============================================================================
+# Copy to application.properties and replace placeholders.
+#
+# ALWAYS REQUIRED
+# ---------------
+# spring.datasource.*     MySQL username/password for database "mydb"
+# jwt.secret              Min 32 chars; used to sign JWT tokens (generate a random string)
+#
+# OPTIONAL (enable flags when you add real keys)
+# ----------------------------------------------
+# captcha.enabled=true + recaptcha.secret-key     Google reCAPTCHA v2 secret key
+# mail.enabled=true + spring.mail.*               Gmail + App Password for OTP emails
+# razorpay.enabled=true + razorpay.key-id/secret  Razorpay test/live keys for payments
+# =============================================================================
+
+spring.application.name=TicketBookingApplicaton
+
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+server.port=8080
+
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.idle-timeout=300000
+spring.datasource.hikari.max-lifetime=1200000
+spring.datasource.hikari.connection-timeout=20000
+spring.datasource.hikari.pool-name=AirlineBookingPool
+
+# JWT (required) — use a long random secret in production
+jwt.secret=CHANGE_ME_TO_A_RANDOM_STRING_AT_LEAST_32_CHARS
+jwt.expiration=3600000
+jwt.refresh-expiration=86400000
+
+auth.session.inactivity-timeout=900000
+auth.otp.expiry-minutes=5
+auth.reset-token.expiry-minutes=10
+auth.max-failed-attempts=5
+auth.lock-duration-minutes=15
+auth.rate-limit.max-attempts=5
+auth.rate-limit.window-seconds=60
+
+# reCAPTCHA — secret key from https://www.google.com/recaptcha/admin
+captcha.enabled=false
+recaptcha.secret-key=PASTE_RECAPTCHA_SECRET_KEY_HERE
+recaptcha.verify-url=https://www.google.com/recaptcha/api/siteverify
+
+# Gmail SMTP — use App Password: https://myaccount.google.com/apppasswords
+mail.enabled=false
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your-email@gmail.com
+spring.mail.password=PASTE_GMAIL_APP_PASSWORD_HERE
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+app.frontend.login-url=http://localhost:4200/login
+app.name=Bharat Airlines
+
+seat.lock.duration-minutes=3
+
+# Razorpay — https://dashboard.razorpay.com/app/keys
+razorpay.enabled=false
+razorpay.key-id=rzp_test_PASTE_KEY_ID_HERE
+razorpay.key-secret=PASTE_RAZORPAY_SECRET_HERE
+
+spring.cache.type=simple
+app.cache.flight-search-ttl=300000

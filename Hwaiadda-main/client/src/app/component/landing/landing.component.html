@@ -1,0 +1,79 @@
+<div class="landing page-enter">
+  <nav class="landing-nav">
+    <a routerLink="/" class="brand">
+      <span class="brand-icon">✈</span>
+      <span class="brand-text">Bharat Airlines</span>
+    </a>
+    <div class="nav-actions">
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/register" class="btn-bharat-saffron btn-sm">Register</a>
+      <a *ngIf="authService.isLoggedIn()" routerLink="/dashboard" class="btn-bharat-primary btn-sm">Dashboard</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="tagline">Connecting Bharat to the World</p>
+      <h1>Fly with Pride,<br>Fly with Bharat</h1>
+      <p class="hero-sub">Book domestic and international flights with ease.</p>
+
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="hero-search card-hover">
+        <div class="row g-2">
+          <div class="col-md-3">
+            <label>From</label>
+            <input class="form-control" formControlName="source" placeholder="Departure city">
+          </div>
+          <div class="col-md-3">
+            <label>To</label>
+            <input class="form-control" formControlName="destination" placeholder="Destination city">
+          </div>
+          <div class="col-md-2">
+            <label>Date</label>
+            <input type="date" class="form-control" formControlName="date">
+          </div>
+          <div class="col-md-2">
+            <label>Travellers</label>
+            <input type="number" class="form-control" formControlName="adult" min="1" max="9">
+          </div>
+          <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn-bharat-saffron w-100">Search Flights</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="features section-pad">
+    <h2 class="section-title text-center mb-4">Why Bharat Airlines?</h2>
+    <div class="row g-4">
+      <div class="col-md-3" *ngFor="let f of features">
+        <div class="feature-card card-hover page-enter">
+          <span class="feature-icon">{{ f.icon }}</span>
+          <h5>{{ f.title }}</h5>
+          <p>{{ f.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="destinations section-pad">
+    <h2 class="section-title text-center mb-4">Popular Destinations</h2>
+    <div class="row g-3">
+      <div class="col-md-2 col-6" *ngFor="let d of destinations">
+        <div class="dest-card card-hover" (click)="searchForm.patchValue({ destination: d.city }); onSearch()">
+          <span class="dest-emoji">{{ d.img }}</span>
+          <strong>{{ d.city }}</strong>
+          <small>{{ d.code }}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <p>© 2026 Bharat Airlines — Connecting Bharat to the World</p>
+    <div class="footer-links">
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </div>
+  </footer>
+</div>

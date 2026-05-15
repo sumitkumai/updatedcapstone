@@ -1,0 +1,40 @@
+.navbar-bharat {
+  background: linear-gradient(90deg, var(--bharat-blue), #0d5a8a);
+  box-shadow: 0 2px 12px rgba(10, 61, 98, 0.25);
+
+  .navbar-brand {
+    color: var(--bharat-white);
+    font-weight: 700;
+    text-decoration: none;
+
+    .brand-icon {
+      color: var(--bharat-saffron);
+      margin-right: 0.35rem;
+    }
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--bharat-saffron) !important;
+    }
+  }
+
+  .btn-register {
+    background: var(--bharat-saffron);
+    border-radius: 6px;
+    padding: 0.25rem 0.75rem !important;
+    margin-left: 0.5rem;
+    color: var(--bharat-white) !important;
+
+    &:hover {
+      background: #e88a2e;
+    }
+  }
+}
+
+.app-content {
+  padding: 1rem 0;
+}

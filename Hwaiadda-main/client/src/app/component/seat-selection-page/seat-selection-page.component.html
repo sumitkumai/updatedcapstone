@@ -1,0 +1,20 @@
+<div class="page-enter container py-4">
+  <h3 class="section-title">Select Your Seat</h3>
+  <p *ngIf="flight" class="text-muted">
+    Flight {{ flight.flight_number }} — {{ flight.source }} → {{ flight.destination }}
+    <span class="ms-2">₹{{ bookingFlow.totalPrice }}</span>
+  </p>
+
+  <div class="alert alert-danger" *ngIf="showError">{{ errorMessage }}</div>
+
+  <div class="seat-panel card-hover">
+    <app-seat [flightId]="flightId" [seats]="seats" (seatSelected)="onSeatSelected($event)"></app-seat>
+  </div>
+
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn btn-outline-secondary" routerLink="/search_flight">Back</button>
+    <button class="btn-bharat-primary" [disabled]="!selectedSeat" (click)="proceedToPayment()">
+      Continue to Payment
+    </button>
+  </div>
+</div>

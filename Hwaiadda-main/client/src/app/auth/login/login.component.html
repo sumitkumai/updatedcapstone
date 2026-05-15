@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card p-4 shadow" style="width: 400px;">
+    <h4 class="text-center mb-1">✈ AIRLINE BOOKING</h4>
+    <p class="text-center text-muted mb-3">Please enter your credentials</p>
+
+    <div class="alert alert-danger" *ngIf="showError">{{ errorMessage }}</div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username" placeholder="Enter username">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="••••••••">
+      </div>
+
+      <div class="mb-3" *ngIf="captchaEnabled">
+        <div id="recaptcha-login"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+    </form>
+
+    <p class="text-center mt-2 mb-0">
+      <a routerLink="/forgot-password">Forgot password?</a>
+    </p>
+    <p class="text-center mt-2">
+      Don't have an account? <a routerLink="/register"><strong>Register</strong></a>
+    </p>
+  </div>
+</div>

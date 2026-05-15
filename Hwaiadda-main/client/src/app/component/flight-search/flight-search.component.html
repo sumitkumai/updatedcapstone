@@ -1,0 +1,71 @@
+<div class="page-enter container py-3">
+  <h3 class="section-title">Search Flights</h3>
+  <p class="tagline">Bharat Airlines</p>
+
+  <div class="card p-3 mb-4 card-hover">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+      <div class="row g-2 align-items-end">
+        <div class="col-md-3">
+          <label class="form-label">From</label>
+          <input class="form-control" formControlName="source" list="sourceList" placeholder="Departure">
+          <datalist id="sourceList">
+            <option *ngFor="let s of sourceList" [value]="s"></option>
+          </datalist>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">To</label>
+          <input class="form-control" formControlName="destination" list="destList" placeholder="Destination">
+          <datalist id="destList">
+            <option *ngFor="let d of destinationList" [value]="d"></option>
+          </datalist>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-control" formControlName="date">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Travellers</label>
+          <input type="number" class="form-control" formControlName="adult" min="1">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn-bharat-primary w-100">Search</button>
+        </div>
+      </div>
+    </form>
+    <form [formGroup]="filterForm" class="row g-2 mt-2 align-items-end">
+      <div class="col-md-2">
+        <input type="number" class="form-control form-control-sm" formControlName="minPrice" placeholder="Min price">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control form-control-sm" formControlName="maxPrice" placeholder="Max price">
+      </div>
+      <div class="col-md-3">
+        <select class="form-select form-select-sm" formControlName="sortBy">
+          <option value="price">Price (low)</option>
+          <option value="price_desc">Price (high)</option>
+          <option value="duration">Duration</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="showError">{{ errorMessage }}</div>
+
+  <div *ngIf="flights.length > 0" class="flight-results">
+    <h6 class="section-title">Available Flights</h6>
+    <div class="flight-card card-hover mb-3" *ngFor="let f of flights">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+          <strong>{{ f.flight_number }}</strong>
+          <span class="text-muted ms-2">{{ f.source }} → {{ f.destination }}</span>
+          <br>
+          <small>{{ f.departureTime }} – {{ f.arrivalTime }}</small>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="price-tag">₹{{ f.price }}</span>
+          <button class="btn-bharat-saffron btn-sm" (click)="selectFlight(f)">Select Seats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

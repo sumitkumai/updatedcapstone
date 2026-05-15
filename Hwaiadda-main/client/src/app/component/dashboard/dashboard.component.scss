@@ -1,0 +1,41 @@
+.dashboard-hero {
+  background: linear-gradient(135deg, var(--bharat-blue), #0d5a8a);
+  color: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 2rem;
+
+  .section-title {
+    color: var(--bharat-white);
+  }
+
+  .text-muted {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+}
+
+.dash-card {
+  display: block;
+  background: var(--bharat-white);
+  border-radius: var(--bharat-radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-top: 3px solid var(--bharat-saffron);
+
+  h5 {
+    color: var(--bharat-blue);
+    margin: 0.5rem 0;
+  }
+
+  p {
+    color: var(--bharat-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .dash-icon {
+    font-size: 2rem;
+  }
+}

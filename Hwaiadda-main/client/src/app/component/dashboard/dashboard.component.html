@@ -1,0 +1,85 @@
+<div class="page-enter container py-4">
+  <div class="dashboard-hero card-hover">
+    <p class="tagline mb-1">Connecting Bharat to the World</p>
+    <h2 class="section-title">Welcome to Bharat Airlines</h2>
+    <p class="text-muted">Signed in as <strong>{{ role }}</strong></p>
+  </div>
+
+  <div class="mt-4" *ngIf="role === 'ADMIN'">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <a routerLink="/admin/analytics" class="dash-card card-hover">
+          <span class="dash-icon">📊</span>
+          <h5>Analytics</h5>
+          <p>Revenue & booking charts</p>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/add_flights" class="dash-card card-hover">
+          <span class="dash-icon">✈️</span>
+          <h5>Manage Flights</h5>
+          <p>Add & update routes</p>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/view_all_user" class="dash-card card-hover">
+          <span class="dash-icon">📋</span>
+          <h5>All Bookings</h5>
+          <p>View passenger bookings</p>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/assign_pilot" class="dash-card card-hover">
+          <span class="dash-icon">👨‍✈️</span>
+          <h5>Assign Pilots</h5>
+          <p>Schedule crew</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4" *ngIf="role === 'PASSENGER'">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <a routerLink="/search_flight" class="dash-card card-hover">
+          <span class="dash-icon">🔍</span>
+          <h5>Search Flights</h5>
+          <p>Find your next journey</p>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a routerLink="/my_booking" class="dash-card card-hover">
+          <span class="dash-icon">🎫</span>
+          <h5>My Bookings</h5>
+          <p>View & manage tickets</p>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a routerLink="/my_profile" class="dash-card card-hover">
+          <span class="dash-icon">👤</span>
+          <h5>My Profile</h5>
+          <p>Account settings</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4" *ngIf="role === 'PILOT'">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <a routerLink="/pilot-schedule" class="dash-card card-hover">
+          <span class="dash-icon">📅</span>
+          <h5>My Schedule</h5>
+          <p>View assigned flights</p>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a routerLink="/my_profile" class="dash-card card-hover">
+          <span class="dash-icon">👤</span>
+          <h5>My Profile</h5>
+          <p>Account settings</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

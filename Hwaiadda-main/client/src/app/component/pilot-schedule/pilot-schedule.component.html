@@ -1,0 +1,22 @@
+<div class="page-enter container py-4">
+  <h3 class="section-title">My Flight Schedule</h3>
+  <p class="tagline">Bharat Airlines — Pilot Portal</p>
+
+  <div class="alert alert-danger" *ngIf="showError">{{ errorMessage }}</div>
+
+  <div *ngIf="schedules.length === 0 && !showError" class="text-muted">No scheduled flights assigned yet.</div>
+
+  <div class="row g-3" *ngIf="schedules.length > 0">
+    <div class="col-md-6" *ngFor="let s of schedules">
+      <div class="schedule-card card-hover">
+        <h5>{{ s.flight?.flight_number || 'Flight' }}</h5>
+        <p>{{ s.flight?.source }} → {{ s.flight?.destination }}</p>
+        <p><small>Date: {{ s.scheduledDate }} | Status: <strong>{{ s.assignStatus }}</strong></small></p>
+        <div class="d-flex gap-2 mt-2" *ngIf="s.assignStatus === 'ASSIGNED'">
+          <button class="btn btn-sm btn-success" (click)="updateStatus(s.id, 'COMPLETED')">Mark Completed</button>
+          <button class="btn btn-sm btn-warning" (click)="updateStatus(s.id, 'CANCELLED')">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
